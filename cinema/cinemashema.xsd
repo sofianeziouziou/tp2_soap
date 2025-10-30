@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/cinemashema" xmlns:tns="http://www.example.org/cinemashema" elementFormDefault="qualified">
+
+    
+
+
+
+
+
+
+    <element name="Film" type="tns:Titre"></element>
+    
+    <complexType name="Titre">
+    	<attribute name="id" type="int"></attribute>
+    </complexType>
+
+
+
+
+
+
+
+
+
+
+</schema>

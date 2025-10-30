@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.example.org/gestion_ecole"
+        xmlns:tns="http://www.example.org/gestion_ecole"
+        elementFormDefault="qualified">
+
+    <!-- Élément racine -->
+    <element name="ECOLE1">
+    	<complexType>
+    		<sequence>
+    			<element name="ADMINISTRATION" type="tns:ADMINISTRATION"
+    				maxOccurs="unbounded" />
+    			<element name="MAITRES" type="tns:LISTE_MAITRES" />
+    			<element name="MATIERES" type="tns:LISTE_MATIERES" />
+    			<element name="ELEVES" type="tns:LISTE_ELEVES" />
+    			<element name="NOTES" type="tns:LISTE_NOTES" />
+    			<element name="RESULTATS" type="tns:LISTE_RESULTATS" />
+    		</sequence>
+    	</complexType>
+    </element>
+
+    <!-- ADMINISTRATION -->
+    <complexType name="ADMINISTRATION">
+        <sequence>
+            <element name="nom" type="string"/>
+            <element name="prenom" type="string"/>
+            <element name="fonction" type="string"/>
+            <element name="email" type="string"/>
+        </sequence>
+        <attribute name="id_admin" type="int" use="required"/>
+    </complexType>
+
+    <!-- MAITRE -->
+    <complexType name="MAITRE">
+        <sequence>
+            <element name="nom" type="string"/>
+            <element name="prenom" type="string"/>
+            <element name="specialite" type="string"/>
+        </sequence>
+        <attribute name="id_maitre" type="int" use="required"/>
+    </complexType>
+
+    <complexType name="LISTE_MAITRES">
+        <sequence>
+            <element name="MAITRE" type="tns:MAITRE" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <!-- MATIERE liée à MAITRE -->
+    <complexType name="MATIERE">
+        <sequence>
+            <element name="nom_matiere" type="string"/>
+            <element name="coefficient" type="float"/>
+            <!-- Relation : référence vers le maître -->
+            <element name="maitre" type="tns:MAITRE"/>
+        </sequence>
+        <attribute name="id_matiere" type="int" use="required"/>
+    </complexType>
+
+    <complexType name="LISTE_MATIERES">
+        <sequence>
+            <element name="MATIERE" type="tns:MATIERE" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <!-- ELEVE -->
+    <complexType name="ELEVE">
+        <sequence>
+            <element name="nom" type="string"/>
+            <element name="prenom" type="string"/>
+            <element name="age" type="int"/>
+            <element name="classe" type="string"/>
+        </sequence>
+        <attribute name="id_eleve" type="int" use="required"/>
+    </complexType>
+
+    <complexType name="LISTE_ELEVES">
+        <sequence>
+            <element name="ELEVE" type="tns:ELEVE" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <!-- NOTE liée à ELEVE et MATIERE -->
+    <complexType name="NOTE">
+        <sequence>
+            <element name="eleve" type="tns:ELEVE"/>
+            <element name="matiere" type="tns:MATIERE"/>
+            <element name="note_ds" type="float"/>
+            <element name="note_examen" type="float"/>
+            <element name="moyenne" type="float"/>
+        </sequence>
+        <attribute name="id_note" type="int" use="required"/>
+    </complexType>
+
+    <complexType name="LISTE_NOTES">
+        <sequence>
+            <element name="NOTE" type="tns:NOTE" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <!-- RESULTAT_FINAL lié à ELEVE -->
+    <complexType name="RESULTAT_FINAL">
+        <sequence>
+            <element name="eleve" type="tns:ELEVE"/>
+            <element name="moyenne_generale" type="float"/>
+            <element name="mention" type="string"/>
+            <element name="decision" type="string"/>
+        </sequence>
+        <attribute name="id_resultat" type="int" use="required"/>
+    </complexType>
+
+    <complexType name="LISTE_RESULTATS">
+        <sequence>
+            <element name="RESULTAT_FINAL" type="tns:RESULTAT_FINAL" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+</schema>

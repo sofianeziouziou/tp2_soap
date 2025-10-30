@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;Gestion d&apos;ecole/gestion_ecole.xml&apos; to &apos;gestion_ecole1.xml&apos;" description="Rename resource &apos;gestion_ecole.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="gestion_ecole.xml" name="gestion_ecole1.xml" stamp="1760389491347" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;Gestion d&apos;ecole/gestion_ecole1.xml&apos; to &apos;gestion_ecole.xml&apos;" description="Rename resource &apos;gestion_ecole1.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="gestion_ecole1.xml" name="gestion_ecole.xml" stamp="1760389511902" updateReferences="true"/>
+</session>

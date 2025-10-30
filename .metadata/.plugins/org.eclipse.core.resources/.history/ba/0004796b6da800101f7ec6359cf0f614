@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/gestion_ecole" xmlns:tns="http://www.example.org/gestion_ecole" elementFormDefault="qualified">
+
+    <element name="ADMINISTRATION" type="tns:ADMINISTRATION"></element>
+    
+    <complexType name="ADMINISTRATION">
+    	<sequence>
+    		<element name="nom" type="string"></element>
+    		<element name="prenom" type="string"></element>
+    		<element name="function" type="string"></element>
+    		<element name="email" type="string"></element>
+    	</sequence>
+    	<attribute name="id_admin" type="int" use="prohibited"></attribute>
+    </complexType>
+
+    
+
+    <element name="MAITRE" type="tns:MAITRE"></element>
+    
+    <complexType name="MAITRE">
+    	<sequence>
+    		<element name="nom" type="string"></element>
+    		<element name="prenom" type="string"></element>
+    		<element name="specialite" type="string"></element>
+    	</sequence>
+    	<attribute name="id_maitre" type="int"></attribute>
+    </complexType>
+
+    <element name="MATIERE" type="tns:MATIERE"></element>
+    
+    <complexType name="MATIERE">
+    	<sequence>
+    		<element name="nom_matiere" type="string"></element>
+    		<element name="coefficient" type="float"></element>
+    		<element name="id_maitre" type="int"></element>
+    	</sequence>
+    	<attribute name="id_matiere" type="int"></attribute>
+    </complexType>
+
+    <element name="ELEVE" type="tns:ELEVE"></element>
+    
+    <complexType name="ELEVE">
+    	<sequence>
+    		<element name="nom" type="string"></element>
+    		<element name="prenom" type="string"></element>
+    		<element name="age" type="int"></element>
+    		<element name="classe" type="string"></element>
+    	</sequence>
+    	<attribute name="id_eleve" type="int"></attribute>
+    </complexType>
+
+    <element name="NOTE" type="tns:NOTE"></element>
+    
+    <complexType name="NOTE">
+    	<sequence>
+    		<element name="id_eleve" type="int"></element>
+    		<element name="id_matiere" type="int"></element>
+    		<element name="note_ds" type="float"></element>
+    		<element name="note_examen" type="float"></element>
+    		<element name="moyenne" type="float"></element>
+    	</sequence>
+    	<attribute name="id_note" type="int"></attribute>
+    </complexType>
+</schema>

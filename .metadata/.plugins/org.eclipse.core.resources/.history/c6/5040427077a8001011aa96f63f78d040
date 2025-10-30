@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Ecole>
+    <Eleve id="E1">
+        <Nom>Ben Ali</Nom>
+        <Prenom>Ahmed</Prenom>
+        <Classe>3A</Classe>
+    </Eleve>
+
+    <Eleve id="E2">
+        <Nom>Trabelsi</Nom>
+        <Prenom>Nour</Prenom>
+        <Classe>3A</Classe>
+    </Eleve>
+
+    <Matiere id="M1">
+        <NomMatiere>Mathématiques</NomMatiere>
+        <Coefficient>4</Coefficient>
+    </Matiere>
+
+    <Matiere id="M2">
+        <NomMatiere>Français</NomMatiere>
+        <Coefficient>3</Coefficient>
+    </Matiere>
+
+    <Note>
+        <IdEleve>E1</IdEleve>
+        <IdMatiere>M1</IdMatiere>
+        <NoteDS>12.5</NoteDS>
+        <NoteExamen>15.0</NoteExamen>
+    </Note>
+
+    <Note>
+        <IdEleve>E2</IdEleve>
+        <IdMatiere>M2</IdMatiere>
+        <NoteDS>14.0</NoteDS>
+        <NoteExamen>13.5</NoteExamen>
+    </Note>
+</Ecole>

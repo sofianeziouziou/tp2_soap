@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.example.org/reseau_social"
+           xmlns="http://www.example.org/reseau_social"
+           elementFormDefault="qualified">
+
+    <!-- Élément racine -->
+    <xs:element name="reseau_social">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="utilisateurs" type="ListeUtilisateurs"/>
+                <xs:element name="publications" type="ListePublications"/>
+                <xs:element name="commentaires" type="ListeCommentaires"/>
+                <xs:element name="amis" type="ListeRelations"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Liste des utilisateurs -->
+    <xs:complexType name="ListeUtilisateurs">
+        <xs:sequence>
+            <xs:element name="utilisateur" type="Utilisateur" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Utilisateur">
+        <xs:sequence>
+            <xs:element name="nom" type="xs:string"/>
+            <xs:element name="prenom" type="xs:string"/>
+            <xs:element name="email" type="xs:string"/>
+            <xs:element name="age" type="xs:int"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+    </xs:complexType>
+
+    <!-- Liste des publications -->
+    <xs:complexType name="ListePublications">
+        <xs:sequence>
+            <xs:element name="publication" type="Publication" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Publication">
+        <xs:sequence>
+            <xs:element name="date" type="xs:date"/>
+            <xs:element name="contenu" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+        <xs:attribute name="id_utilisateur" type="xs:IDREF" use="required"/>
+    </xs:complexType>
+
+    <!-- Liste des commentaires -->
+    <xs:complexType name="ListeCommentaires">
+        <xs:sequence>
+            <xs:element name="commentaire" type="Commentaire" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Commentaire">
+        <xs:sequence>
+            <xs:element name="texte" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+        <xs:attribute name="id_publication" type="xs:IDREF" use="required"/>
+        <xs:attribute name="id_utilisateur" type="xs:IDREF" use="required"/>
+    </xs:complexType>
+
+    <!-- Liste des relations d'amitié -->
+    <xs:complexType name="ListeRelations">
+        <xs:sequence>
+            <xs:element name="relation" type="Relation" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Relation">
+        <xs:sequence>
+            <xs:element name="id_utilisateur1" type="xs:IDREF"/>
+            <xs:element name="id_utilisateur2" type="xs:IDREF"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+    </xs:complexType>
+
+</xs:schema>

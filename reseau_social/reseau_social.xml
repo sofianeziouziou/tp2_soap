@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reseau_social>
+    <utilisateurs>
+        <utilisateur id="U1">
+            <nom>Ahmed</nom>
+            <prenom>Ben Ali</prenom>
+            <email>ahmed@example.com</email>
+            <age>22</age>
+        </utilisateur>
+        <utilisateur id="U2">
+            <nom>Nour</nom>
+            <prenom>Trabelsi</prenom>
+            <email>nour@example.com</email>
+            <age>21</age>
+        </utilisateur>
+    </utilisateurs>
+
+    <publications>
+        <publication id="P1" id_utilisateur="U1">
+            <date>2025-10-13</date>
+            <contenu>Bonjour à tous ! 😊</contenu>
+        </publication>
+        <publication id="P2" id_utilisateur="U2">
+            <date>2025-10-13</date>
+            <contenu>Magnifique journée 🌞</contenu>
+        </publication>
+    </publications>
+
+    <commentaires>
+        <commentaire id="C1" id_publication="P1" id_utilisateur="U2">
+            <texte>Salut Ahmed !</texte>
+        </commentaire>
+        <commentaire id="C2" id_publication="P2" id_utilisateur="U1">
+            <texte>Merci Nour 😄</texte>
+        </commentaire>
+    </commentaires>
+
+    <amis>
+        <relation id="A1">
+            <id_utilisateur1>U1</id_utilisateur1>
+            <id_utilisateur2>U2</id_utilisateur2>
+        </relation>
+    </amis>
+</reseau_social>
